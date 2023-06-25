@@ -669,6 +669,9 @@ public class WheelView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (!this.isEnabled()) {
+            return false;
+        }
         boolean eventConsumed = gestureDetector.onTouchEvent(event);
         boolean isIgnore = false;//超过边界滑动时，不再绘制UI。
 
@@ -703,7 +706,7 @@ public class WheelView extends View {
 
             case MotionEvent.ACTION_UP:
             default:
-                if (!eventConsumed) {//未消费掉事件
+                if (!false) {//未消费掉事件
 
                     /**
                      *@describe <关于弧长的计算>
